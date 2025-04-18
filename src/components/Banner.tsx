@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="banner">
       <img 
-        src="../../public/retailcompass.webp" 
+        src="/retailcompass.webp" 
         alt="Banner retail compass"
         className="banner-image"
       />
