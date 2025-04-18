@@ -1,0 +1,14 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f6f6f6;
+}
+
+.app-layout {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+
+    .products-container {
+        flex-grow: 1;
+    }
+}
