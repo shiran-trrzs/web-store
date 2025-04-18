@@ -17,20 +17,20 @@ const ProductFilters = () => {
         <aside className="sidebar">
             <h2 className="sidebar-title">Filtrar productos</h2>
             <div className="sidebar-filters">
-                <label>
+                <label htmlFor="marca">
                     Marca:
                 </label>
-                <select onChange={handleBrandChange} defaultValue="">
+                <select id="marca" onChange={handleBrandChange} defaultValue="">
                     {brands.map((brand) => (
                         <option key={brand.key} value={brand.value}> {brand.label} </option>
                     ))}
                 </select>
             </div>
             <div className="sidebar-filters">
-                <label>
+                <label htmlFor="estado">
                     Estado:
                 </label>
-                <select onChange={handleStatusChange} defaultValue="">
+                <select id="estado" onChange={handleStatusChange} defaultValue="">
                     {states.map((state) => (
                         <option key={state.key} value={state.value}> {state.label} </option>
                     ))}
