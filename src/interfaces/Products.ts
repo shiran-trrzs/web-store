@@ -20,9 +20,9 @@ export interface Product {
     url:         string;
     imageUrl:    string;
     status:      Status;
-    created:     Date;
-    updated:     Date;
-    extracted:   Date;
+    created:     string;
+    updated:     string;
+    extracted:   string;
     prices:      ProductPrices;
     categories:  Categories;
     competitors: Competitor[];
