@@ -1,3 +1,4 @@
+import Banner from './components/Banner';
 import ListedProducts from './components/ListedProducts';
 import ProductFilters from './components/ProductFilters';
 import './styles/style.scss';
@@ -5,6 +6,7 @@ import './styles/style.scss';
 function App() {
 	return (
 		<div className="app-container">
+			<Banner />
 			<div className="app-layout">
 				<aside>
 					<ProductFilters />
@@ -17,4 +19,4 @@ function App() {
 	)
 }
 
-export default App
+export default App;

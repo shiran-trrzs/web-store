@@ -1,0 +1,11 @@
+$primary-bg-color: #ffffff;
+
+.banner {
+    padding: 1rem;
+    background-color: $primary-bg-color;
+
+    &-image {
+        width: 200px;
+        object-fit: cover
+    }
+}
