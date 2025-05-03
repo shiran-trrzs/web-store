@@ -6,6 +6,7 @@ export const mockUseProductsStore: ProductStore = {
     isLoading: false,
     paging: null,
     filters: {},
+    setFilters: vi.fn(),
     getProducts: vi.fn(),
     changePage: vi.fn()
 };

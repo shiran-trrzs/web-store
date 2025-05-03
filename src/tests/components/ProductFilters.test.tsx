@@ -23,26 +23,26 @@ describe("ProductFilters", () => {
         expect(screen.getByLabelText(/estado/i)).toBeInTheDocument();
     });
 
-    it("Calls getProducts with the selected brand value", () => {
+    it("Calls setFilters with the selected brand value", () => {
         render(<ProductFilters />);
         const marcaSelect = screen.getByLabelText(/marca/i);
 
         fireEvent.change(marcaSelect, { target: { value: "Marquis" } });
 
-        expect(mockUseProductsStore.getProducts).toHaveBeenCalledWith({
+        expect(mockUseProductsStore.setFilters).toHaveBeenCalledWith({
             ...mockUseProductsStore.filters,
             brand: "Marquis",
             page: 0
         });
     });
 
-    it("Calls getProducts with the selected status value", () => {
+    it("Calls setFilters with the selected status value", () => {
         render(<ProductFilters />);
         const estadoSelect = screen.getByLabelText(/estado/i);
 
         fireEvent.change(estadoSelect, { target: { value: "AVAILABLE" } });
 
-        expect(mockUseProductsStore.getProducts).toHaveBeenCalledWith({
+        expect(mockUseProductsStore.setFilters).toHaveBeenCalledWith({
             ...mockUseProductsStore.filters,
             status: "AVAILABLE",
             page: 0
