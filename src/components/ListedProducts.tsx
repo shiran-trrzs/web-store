@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useProductsStore } from "../store/useProductsStore";
 import ProductsPagination from "./ProductsPagination";
 import "../styles/components/ListedProducts.scss";
+import { headers } from "../utils/filterOptions";
 
 const ListedProducts = () => {
 	const { products, isLoading, filters, getProducts } = useProductsStore();
@@ -16,14 +17,11 @@ const ListedProducts = () => {
 		<div className="product-list-container">
 			<table className="product-table">
 				<thead>
-					<tr>
-						<th>Nombre</th>
-						<th>Tienda</th>
-						<th>Precio normal</th>
-						<th>Precio oferta</th>
-						<th>Precio más bajo</th>
-						<th>Descuento</th>
-					</tr>
+					{headers.map((header) => (
+						<tr key={header.key}>
+							<th> {header.label} </th>
+						</tr>
+					))}
 				</thead>
 				<tbody>
 					{products && products.length > 0 ? (

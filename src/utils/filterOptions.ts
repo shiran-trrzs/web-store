@@ -12,7 +12,17 @@ const states = [
     { key: "S2", value: "OUT_OF_STOCK", label: "Sin stock" }
 ];
 
+const headers = [
+    { key: "H01", label: "Nombre" },
+    { key: "H02", label: "Tienda" },
+    { key: "H03", label: "Precio normal" },
+    { key: "H04", label: "Precio oferta" },
+    { key: "H05", label: "Precio más bajo" },
+    { key: "H06", label: "Descuento" }
+];
+
 export {
     brands,
-    states
+    states,
+    headers
 }
