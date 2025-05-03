@@ -1,14 +1,15 @@
 import { create } from "zustand";
 import { getProducts } from "../api/getProducts";
-import { ProductStore } from "../interfaces/store/useProductsStore";
+import { ProductFilters, ProductStore } from "../interfaces/store/useProductsStore";
 
 export const useProductsStore = create<ProductStore>((set, get) => ({
     products: [],
     isLoading: false,
     paging: null,
     filters: {},
-    getProducts: async (filters = {}) => {
-        set({ isLoading: true, filters });
+    setFilters: (newFilters: ProductFilters) => set({ filters: newFilters }),
+    getProducts: async (filters = get().filters) => {
+        set({ isLoading: true });
 
         try {
             const response = await getProducts(filters);

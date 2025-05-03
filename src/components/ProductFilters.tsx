@@ -3,14 +3,14 @@ import { brands, states } from "../utils/filterOptions";
 import "../styles/components/ProductFilters.scss";
 
 const ProductFilters = () => {
-    const { filters, getProducts } = useProductsStore();
+    const { filters, setFilters } = useProductsStore();
 
     const handleBrandChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        getProducts({ ...filters, brand: event.target.value, page: 0 });
+        setFilters({ ...filters, brand: event.target.value, page: 0 });
     }
 
     const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        getProducts({ ...filters, status: event.target.value, page: 0 });
+        setFilters({ ...filters, status: event.target.value, page: 0 });
     }
 
     return (
