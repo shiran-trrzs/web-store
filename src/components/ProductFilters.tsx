@@ -1,42 +1,29 @@
 import { useProductsStore } from "../store/useProductsStore";
-import { brands, states } from "../utils/filterOptions";
+import { filtersConfig } from "../utils/filterOptions";
 import "../styles/components/ProductFilters.scss";
 
 const ProductFilters = () => {
     const { filters, setFilters } = useProductsStore();
 
-    const handleBrandChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setFilters({ ...filters, brand: event.target.value, page: 0 });
-    }
-
-    const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setFilters({ ...filters, status: event.target.value, page: 0 });
+    const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>, filterKey: string) => {
+        setFilters({ ...filters, [filterKey]: event.target.value, page: 0 })
     }
 
     return (
         <aside className="sidebar">
             <h2 className="sidebar-title">Filtrar productos</h2>
-            <div className="sidebar-filters">
-                <label htmlFor="marca">
-                    Marca:
-                </label>
-                <select id="marca" onChange={handleBrandChange} defaultValue="">
-                    {brands.map((brand) => (
-                        <option key={brand.key} value={brand.value}> {brand.label} </option>
-                    ))}
-                </select>
-            </div>
-            <div className="sidebar-filters">
-                <label htmlFor="estado">
-                    Estado:
-                </label>
-                <select id="estado" onChange={handleStatusChange} defaultValue="">
-                    {states.map((state) => (
-                        <option key={state.key} value={state.value}> {state.label} </option>
-                    ))}
-                </select>
-
-            </div>
+            {filtersConfig.map(({ id, label, options, filterKey }) => (
+                <div className="sidebar-filters" key={id}>
+                    <label htmlFor={id}>
+                        {label}:
+                    </label>
+                    <select id={id} defaultValue="" onChange={(e) => handleFilterChange(e, filterKey)}>
+                        {options.map(({ key, value, label }) => (
+                            <option key={key} value={value}> {label} </option>
+                        ))}
+                    </select>
+                </div>
+            ))}
         </aside>
     )
 }

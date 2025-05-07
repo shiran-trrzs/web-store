@@ -21,8 +21,14 @@ const headers = [
     { key: "H06", label: "Descuento" }
 ];
 
+const filtersConfig = [
+    { id: "marca", label: "Marca", options: brands, filterKey: "brand" },
+    { id: "estado", label: "Estado", options: states, filterKey: "status" }
+];
+
 export {
     brands,
     states,
-    headers
+    headers,
+    filtersConfig
 }
